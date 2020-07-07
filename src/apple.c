@@ -8,7 +8,7 @@ int isMidEnough(int i_capacity){
   int requiredBag = 0;
 
   for(int i=0; i < n; i++){
-    printf("%d ", A[i]);
+    //printf("%d ", A[i]);
     if(A[i]%A[i_capacity] == 0){
       requiredBag += A[i]/A[i_capacity];
     }else{
