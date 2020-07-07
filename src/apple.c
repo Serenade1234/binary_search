@@ -4,18 +4,18 @@ int n;
 int k;
 int A[100000];
 
-int isMidEnough(int i_capacity){
+int isMidEnough(int x){
   int requiredBag = 0;
 
   for(int i=0; i < n; i++){
     //printf("%d ", A[i]);
-    if(A[i]%A[i_capacity] == 0){
-      requiredBag += A[i]/A[i_capacity];
+    if(A[i]%x == 0){
+      requiredBag += A[i] / x;
     }else{
-      requiredBag += A[i]/A[i_capacity] + 1;
+      requiredBag += A[i] / x + 1;
     }
   }
-  //printf("min : %d, required : %d, bagN : %d\n", A[i_capacity], requiredBag, k);
+  //printf("min : %d, required : %d, bagN : %d\n", x, requiredBag, k);
   
   /*探索中の要素を最小としたときに必要なバッグの数が指定の数より小さい
      <=> バッグはもっと多くて良い
@@ -34,8 +34,8 @@ int main(){
     scanf("%d", &A[i]);
   }
 
-  lb = -1;
-  ub = n-1;
+  lb = 0;
+  ub = 1000000000;
 
   while(ub - lb > 1){
     
@@ -49,7 +49,6 @@ int main(){
 
   }
 
-  printf("%d\n", A[ub]);
-
+  printf("%d\n", ub);
   return 0;
 }
